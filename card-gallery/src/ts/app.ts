@@ -1,3 +1,4 @@
+import '../scss/style.scss';
 import { setImages } from './files/images';
 
 function start(): void {
