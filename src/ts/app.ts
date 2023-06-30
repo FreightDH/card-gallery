@@ -1,13 +1,19 @@
-async function getImagesFromApi<T>(): Promise<T> {
+import { setImages } from './files/images';
+
+function start(): void {
   const cards = document.querySelectorAll('.cards__slide');
 
-  const apiKey = 'fFxnjJbATX8AjCAtTqW8H-eFSG-tT_L0dP64-83e--Y';
-  const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${'cars'}&client_id=${apiKey}&count=${
-    cards.length
-  }`;
+  setImages();
 
-  const res = await fetch(url);
-  const data = await res.json();
+  document.addEventListener('click', (event) => {
+    const currentCard = event.target as HTMLElement;
 
-  return data;
+    cards.forEach((card) => {
+      card.classList.remove('active');
+    });
+
+    currentCard.classList.add('active');
+  });
 }
+
+window.onload = (): void => start();
