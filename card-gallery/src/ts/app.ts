@@ -3,17 +3,35 @@ import { setImages } from './files/images';
 
 function start(): void {
   const cards = document.querySelectorAll('.cards__slide');
+  const inputButton = document.querySelector('.change__button')!;
+  const input: HTMLInputElement = document.querySelector('.change__input')!;
+  input.value = 'audi';
 
   setImages();
 
   document.addEventListener('click', (event) => {
-    const currentCard = event.target as HTMLElement;
+    const target = event.target as HTMLElement;
 
-    cards.forEach((card) => {
-      card.classList.remove('active');
-    });
+    if (input.classList.contains('active') && !target.closest('.change__input') && !target.closest('.change__button')) {
+      input.classList.remove('active');
+    }
 
-    currentCard.classList.add('active');
+    if (target.closest('.cards__slide')) {
+      cards.forEach((card) => {
+        card.classList.remove('active');
+      });
+
+      target.classList.add('active');
+    }
+  });
+
+  inputButton.addEventListener('click', () => {
+    input.classList.toggle('active');
+  });
+
+  input.addEventListener('change', () => {
+    input.classList.remove('active');
+    setImages(input.value);
   });
 }
 
