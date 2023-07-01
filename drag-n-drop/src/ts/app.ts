@@ -1,6 +1,7 @@
 import '../scss/style.scss';
 import { createTask, removeTask } from './files/task';
 import { setDragDropEvents, updateTasksCounters } from './files/functions';
+import { setLocalStorage } from './files/localStorage';
 
 function start(): void {
   const createTaskButton = document.querySelector('.todo__create')!;
@@ -27,4 +28,5 @@ function start(): void {
   updateTasksCounters();
 }
 
-window.onload = () => start();
+window.onload = (): void => start();
+window.onunload = (): void => setLocalStorage();
