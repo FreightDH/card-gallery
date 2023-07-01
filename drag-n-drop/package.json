@@ -1,7 +1,7 @@
 {
-  "name": "card-gallery",
+  "name": "drag-n-drop",
   "version": "1.0.0",
-  "description": "Simple card-gallery using HTML, SCSS. TS",
+  "description": "Simple to-do clone with drag-n-drop using HTML, SCSS. TS",
   "main": "webpack.base.config.js",
   "scripts": {
     "start": "webpack serve --open --config ./config/webpack.config.js --env mode=dev",
