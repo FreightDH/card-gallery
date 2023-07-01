@@ -113,7 +113,7 @@ body {
     min-width: 225px;
   }
 
-  &__item {
+  &__task {
     padding: 15px 15px 20px 15px;
     min-width: 225px;
 
@@ -150,8 +150,8 @@ body {
     border-radius: 20px;
   }
 }
-.item {
-  &__task {
+.task {
+  &__text {
     max-width: 225px;
     line-height: 1.2;
   }
