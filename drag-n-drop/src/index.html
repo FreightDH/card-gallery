@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Exo+2:regular,500,600,700" rel="stylesheet" />
     <title>Drag-n-Drop | Project 2</title>
   </head>
 
@@ -12,7 +13,7 @@
         <section class="todo">
           <div class="todo__container">
             <div class="todo__body">
-              <div class="todo__row">
+              <div class="todo__new">
                 <input autocomplete="off" type="text" class="todo__input" />
                 <button class="todo__create">Create</button>
               </div>
@@ -32,9 +33,9 @@
               </div>
               <div class="todo__row">
                 <div class="todo__placeholder">
-                  <div class="todo__item">
+                  <div class="todo__item" draggable="true">
                     <div class="item__task">Do the drag-n-drop task</div>
-                    <button class="item__remove"></button>
+                    <button class="item__remove"><span>—</span></button>
                   </div>
                 </div>
                 <div class="todo__placeholder"></div>
