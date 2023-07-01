@@ -13,6 +13,11 @@ export function createTask() {
   }
 }
 
+export function removeTask(task: HTMLElement): void {
+  task.remove();
+  updateTasksCounters();
+}
+
 function createTaskElement(task: string) {
   const todoColumn = document.querySelector('.placeholder--todo')!;
   const taskItem = document.createElement('div');
