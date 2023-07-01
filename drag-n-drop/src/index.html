@@ -9,7 +9,40 @@
   <body>
     <div class="wrapper">
       <main class="content">
-        
+        <section class="todo">
+          <div class="todo__container">
+            <div class="todo__body">
+              <div class="todo__row">
+                <input autocomplete="off" type="text" class="todo__input" />
+                <button class="todo__create">Create</button>
+              </div>
+              <div class="todo__row">
+                <div class="todo__header">
+                  <div class="header__title">todo</div>
+                  <div class="header__count">0</div>
+                </div>
+                <div class="todo__header">
+                  <div class="header__title">in progress</div>
+                  <div class="header__count">0</div>
+                </div>
+                <div class="todo__header">
+                  <div class="header__title">closed</div>
+                  <div class="header__count">0</div>
+                </div>
+              </div>
+              <div class="todo__row">
+                <div class="todo__placeholder">
+                  <div class="todo__item">
+                    <div class="item__task">Do the drag-n-drop task</div>
+                    <button class="item__remove"></button>
+                  </div>
+                </div>
+                <div class="todo__placeholder"></div>
+                <div class="todo__placeholder"></div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
     <script src="./app.js" type="module"></script>
