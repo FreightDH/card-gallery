@@ -3,7 +3,6 @@ import { setImages } from './files/images';
 
 function start(): void {
   const cards = document.querySelectorAll('.cards__slide');
-  const inputButton = document.querySelector('.change__button')!;
   const input: HTMLInputElement = document.querySelector('.change__input')!;
   input.value = 'audi';
 
@@ -23,10 +22,10 @@ function start(): void {
 
       target.classList.add('active');
     }
-  });
 
-  inputButton.addEventListener('click', () => {
-    input.classList.toggle('active');
+    if (target.closest('.change__button')) {
+      input.classList.toggle('active');
+    }
   });
 
   input.addEventListener('change', () => {
