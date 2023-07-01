@@ -146,13 +146,12 @@ body {
     }
 
     &.hold {
-      border: 1px solid #000;
+      border: 1px solid #111;
       border-radius: 10px;
     }
 
     &.hide {
-      display: none;
-      // visibility: hidden;
+      visibility: hidden;
     }
   }
 }
