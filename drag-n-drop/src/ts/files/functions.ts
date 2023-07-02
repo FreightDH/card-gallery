@@ -39,7 +39,8 @@ export function setDragDropEvents(): void {
 
     if (!target.closest('.todo__task')) {
       const task = document.querySelector('.hold')!;
-
+      const type = target.className.split(' ')[1].split('--')[1];
+      task.setAttribute('data-type', type);
       target.classList.remove('selected');
       target.appendChild(task);
       updateTasksCounters();

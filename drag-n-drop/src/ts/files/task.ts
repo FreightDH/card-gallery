@@ -1,10 +1,14 @@
 import { updateTasksCounters } from './functions';
 
-function createTaskElement(task: string): void {
+export function createTaskElement(task: string, type: string = 'todo'): void {
   const todoColumn = document.querySelector('.placeholder--todo')!;
+  const progressColumn = document.querySelector('.placeholder--progress')!;
+  const closedColumn = document.querySelector('.placeholder--closed')!;
   const taskItem = document.createElement('div');
+
   taskItem.classList.add('todo__task');
   taskItem.setAttribute('draggable', 'true');
+  taskItem.setAttribute('data-type', type);
 
   const taskText = document.createElement('p');
   taskText.classList.add('task__text');
@@ -15,7 +19,20 @@ function createTaskElement(task: string): void {
   taskRemove.innerHTML = '<span>—</span>';
 
   taskItem.append(taskText, taskRemove);
-  todoColumn.appendChild(taskItem);
+
+  switch (type) {
+    case 'todo':
+      todoColumn.appendChild(taskItem);
+      break;
+    case 'progress':
+      progressColumn.appendChild(taskItem);
+      break;
+    case 'closed':
+      closedColumn.appendChild(taskItem);
+      break;
+    default:
+      break;
+  }
 }
 
 export function createTask(): void {
