@@ -1,9 +1,6 @@
 import { updateTasksCounters } from './functions';
 
-export function createTaskElement(task: string, type: string = 'todo'): void {
-  const todoColumn = document.querySelector('.placeholder--todo')!;
-  const progressColumn = document.querySelector('.placeholder--progress')!;
-  const closedColumn = document.querySelector('.placeholder--closed')!;
+export function createTaskElement(task: string, type: string = 'todo'): HTMLElement {
   const taskItem = document.createElement('div');
 
   taskItem.classList.add('todo__task');
@@ -19,16 +16,24 @@ export function createTaskElement(task: string, type: string = 'todo'): void {
   taskRemove.innerHTML = '<span>—</span>';
 
   taskItem.append(taskText, taskRemove);
+  return taskItem;
+}
+
+export function appendTaskElement(taskElement: HTMLElement): void {
+  const todoColumn = document.querySelector('.placeholder--todo')!;
+  const progressColumn = document.querySelector('.placeholder--progress')!;
+  const closedColumn = document.querySelector('.placeholder--closed')!;
+  const type = taskElement.dataset.type;
 
   switch (type) {
     case 'todo':
-      todoColumn.appendChild(taskItem);
+      todoColumn.appendChild(taskElement);
       break;
     case 'progress':
-      progressColumn.appendChild(taskItem);
+      progressColumn.appendChild(taskElement);
       break;
     case 'closed':
-      closedColumn.appendChild(taskItem);
+      closedColumn.appendChild(taskElement);
       break;
     default:
       break;
@@ -37,10 +42,11 @@ export function createTaskElement(task: string, type: string = 'todo'): void {
 
 export function createTask(): void {
   const input: HTMLInputElement = document.querySelector('.todo__input')!;
-  const task = input.value;
+  const taskText = input.value;
 
-  if (task) {
-    createTaskElement(task);
+  if (taskText) {
+    const taskElement = createTaskElement(taskText);
+    appendTaskElement(taskElement);
     updateTasksCounters();
     input.value = '';
   } else {

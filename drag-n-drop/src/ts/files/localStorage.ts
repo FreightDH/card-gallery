@@ -1,4 +1,4 @@
-import { createTaskElement } from './task';
+import { appendTaskElement, createTaskElement } from './task';
 
 export function setLocalStorage(): void {
   const tasks = Array.from(document.querySelectorAll('.todo__task')).map((task) => {
@@ -18,9 +18,8 @@ export function getLocalStorage(): void {
     const tasks: string[][] = JSON.parse(storageTasks);
 
     tasks.forEach((task) => {
-      createTaskElement(task[0], task[1]);
+      const taskElement = createTaskElement(task[0], task[1]);
+      appendTaskElement(taskElement);
     });
   }
 }
-
-// setLocalStorage();
