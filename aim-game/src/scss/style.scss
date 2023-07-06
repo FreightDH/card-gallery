@@ -6,9 +6,125 @@
   overflow: hidden;
 
   // Прижимаем футер
-  // display: flex;
-  // flex-direction: column;
-  // > main {
-  //   flex: 1 1 auto;
-  // }
+  display: flex;
+  flex-direction: column;
+  > main {
+    flex: 1 1 auto;
+  }
+}
+.content {
+  height: 100vh;
+  overflow: hidden;
+}
+.screen {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(90deg, #29323c 0%, #485563 100%);
+  transition: all 0.5s ease 0s;
+
+  &.up {
+    margin: -100vh 0px 0px 0px;
+  }
+
+  &__container {
+    padding: 0 15px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 64px;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  &__time {
+    display: flex;
+    column-gap: 10px;
+  }
+
+  &__button {
+    display: inline-block;
+    font-size: 24px;
+
+    transition: all 0.2s ease 0s;
+
+    &:hover {
+      color: #16d9e3;
+    }
+
+    &.button--time {
+      display: inline-block;
+      padding: 5px 20px 0px 20px;
+      min-height: 50px;
+
+      border: 2px solid #c0c0c0;
+      background: transparent;
+
+      &:hover {
+        color: #16d9e3;
+        border: 2px solid #16d9e3;
+      }
+    }
+  }
+
+  &__game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    row-gap: 20px;
+  }
+}
+.game {
+  &__time {
+    font-size: 20px;
+  }
+
+  &__board {
+    width: 500px;
+    height: 500px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(118.38deg, #29323c -4.6%, #485563 200.44%);
+    box-shadow:
+      -8px -8px 20px #2a333d,
+      10px 7px 20px #475462;
+    border-radius: 30px;
+    overflow: hidden;
+
+    position: relative;
+
+    .circle {
+      position: absolute;
+
+      background: linear-gradient(90deg, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+      border-radius: 50%;
+
+      cursor: pointer;
+    }
+  }
+
+  &__result {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    font-size: 64px;
+    font-weight: 600;
+  }
 }
