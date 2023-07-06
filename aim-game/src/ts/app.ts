@@ -1,4 +1,10 @@
 import '../scss/style.scss';
+import { nextScreen } from './files/functions';
+import { board, boardOptions } from './files/variables';
+import { createCircle } from './files/circle';
+import Timer from './files/timer';
+
+export let score = 0;
 
 function start(): void {
   const startButton = document.querySelector('.button--start')!;
@@ -17,29 +23,14 @@ function start(): void {
     nextScreen(currentScreen);
     startGame(selectedTime);
   });
-
-  startGame(11);
-}
-
-function nextScreen(screen: HTMLElement): void {
-  screen.classList.add('up');
 }
 
 function startGame(time: number): void {
-  const currentTime = document.querySelector('.time')!;
+  const timer = new Timer(time);
 
-  setInterval(() => {
-    currentTime.textContent = `${time}`;
-    if (time !== 0) time--;
-  }, 1000);
-
-  const board = document.querySelector('.game__board')!;
-  const boardOptions = board.getBoundingClientRect();
-  const boardWidth = boardOptions.width;
-  const boardHeight = boardOptions.height;
-
-  let circle = createCircle(boardWidth, boardHeight);
-  let score = 0;
+  timer.setTime();
+  timer.start();
+  createCircle(boardOptions.width, boardOptions.height);
 
   board.addEventListener('click', (event) => {
     const target = event.target as HTMLElement;
@@ -47,35 +38,9 @@ function startGame(time: number): void {
     if (target.closest('.circle')) {
       score++;
       target.classList.add('hide');
-      circle = createCircle(boardWidth, boardHeight);
-      board.append(circle);
+      createCircle(boardOptions.width, boardOptions.height);
     }
   });
-
-  board.append(circle);
-
-  if (time === 0) {
-    board.textContent = `${score}`;
-  }
-}
-
-function createCircle(boardWidth: number, boardHeight: number) {
-  const circle = document.createElement('div');
-  const size = getRandomInt(10, 60);
-  const x = getRandomInt(0, boardWidth - size);
-  const y = getRandomInt(0, boardHeight - size);
-
-  circle.classList.add('circle');
-  circle.style.width = `${size}px`;
-  circle.style.height = `${size}px`;
-  circle.style.top = `${x}px`;
-  circle.style.left = `${y}px`;
-
-  return circle;
-}
-
-function getRandomInt(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min) + min);
 }
 
 window.onload = () => start();
