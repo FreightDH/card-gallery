@@ -1,15 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Khula:regular,600" rel="stylesheet" />
     <title>Aim game | Project 5</title>
   </head>
 
   <body>
     <div class="wrapper">
       <main class="content">
-        <section class="screen">
+        <section class="screen up">
           <div class="screen__container">
             <div class="screen__body">
               <h1 class="screen__title">Aim game</h1>
@@ -17,20 +18,23 @@
             </div>
           </div>
         </section>
-        <section class="screen">
+        <section class="screen up">
           <div class="screen__container">
             <div class="screen__body">
               <h2 class="screen__title">Choose the time</h2>
-              <button class="screen__button" data-time="10">10 sec</button>
-              <button class="screen__button" data-time="20">20 sec</button>
-              <button class="screen__button" data-time="30">30 sec</button>
+              <div class="screen__time">
+                <button class="screen__button button--time" data-time="10">10 sec</button>
+                <button class="screen__button button--time" data-time="20">20 sec</button>
+                <button class="screen__button button--time" data-time="30">30 sec</button>
+              </div>
             </div>
           </div>
         </section>
         <section class="screen">
           <div class="screen__container">
-            <div class="screen__body">
-              <div class="screen__board"></div>
+            <div class="screen__game">
+              <div class="game__time">Remaining time: <span class="time">0</span> seconds</div>
+              <div class="game__board"></div>
             </div>
           </div>
         </section>
