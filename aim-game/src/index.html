@@ -8,7 +8,33 @@
 
   <body>
     <div class="wrapper">
-      <main class="content"></main>
+      <main class="content">
+        <section class="screen">
+          <div class="screen__container">
+            <div class="screen__body">
+              <h1 class="screen__title">Aim game</h1>
+              <button class="screen__button">Start game</button>
+            </div>
+          </div>
+        </section>
+        <section class="screen">
+          <div class="screen__container">
+            <div class="screen__body">
+              <h2 class="screen__title">Choose the time</h2>
+              <button class="screen__button" data-time="10">10 sec</button>
+              <button class="screen__button" data-time="20">20 sec</button>
+              <button class="screen__button" data-time="30">30 sec</button>
+            </div>
+          </div>
+        </section>
+        <section class="screen">
+          <div class="screen__container">
+            <div class="screen__body">
+              <div class="screen__board"></div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
     <script src="./app.js" type="module"></script>
   </body>
