@@ -16,9 +16,8 @@
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
-    "project": "./card-gallery/tsconfig.json"
+    "project": "./drag-n-drop/tsconfig.json"
   },
-  "eslintIgnore": ["webpack.config.js", "webpack.dev.config.js", "webpack.prod.config.js"],
   "rules": {
     "no-debugger": "off",
     "no-console": 0,
