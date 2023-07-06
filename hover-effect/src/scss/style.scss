@@ -1,0 +1,51 @@
+@import './null';
+
+body {
+  background-color: #111;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  > main {
+    flex: 1 1 auto;
+  }
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.grid {
+  max-width: 400px;
+
+  &__container {
+    padding: 0 15px;
+  }
+
+  &__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  &__square {
+    width: 15px;
+    height: 15px;
+
+    background-color: #1d1d1d;
+    box-shadow: 0 0 2px #000;
+    transition: all 1.5s ease 0s;
+
+    &:hover {
+      transition-duration: 0s;
+    }
+  }
+}
